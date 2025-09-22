@@ -7,12 +7,12 @@ def get_local_ip():
 
 print(f"현재 로컬 IP 주소: {get_local_ip()}")
 
-def scan_ports(ip, start_port, end_port, port_num=0, opened_port=0):
+def scan_ports(ip, start_port, end_port, port_num=0, opened_port=0): 
     print(f" 스캔 대상: {ip}")
     print(f" 스캔 범위: {start_port} ~ {end_port}\n")
 
     for port in range(start_port, end_port + 1):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #socket.AF_INET: IPv4, socket.SOCK_STRAM: TCP포트
         sock.settimeout(0.5)  # 응답 대기 시간 설정
 
         result = sock.connect_ex((ip, port))
